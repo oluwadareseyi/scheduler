@@ -47,6 +47,7 @@
         .disabled {
             color: lightgray;
             pointer-events: none;
+            border: 1px solid lighten(#aab4b9, 20%);
         }
 
         .active {
@@ -123,7 +124,7 @@
 .calendar {
     display: block;
     position: relative;
-    width: 50%;
+    // width: 100%;
     height: auto;
     margin: 0 20px;
 
@@ -155,7 +156,7 @@
         .icons {
             position: absolute;
             top: 18px;
-            left: 240px;
+            left: 200px;
 
             .icon {
                 font-size: 22px;
