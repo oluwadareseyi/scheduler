@@ -14,12 +14,14 @@ const AppStart = () => {
             <div className="interval-text">10-20min</div>
           </div>
         </div>
-        <div className="top-section--right"></div>
+        <div className="top-section--right">
+            <Calendar />
+        </div>
       </div>
       <div className="footer">
           <div className="footer-items">
               <button className="prev"><i class="fas fa-arrow-left"></i> Back</button>
-              <button className="next"></button>
+              <button className="next">Next Step</button>
           </div>
       </div>
     </div>

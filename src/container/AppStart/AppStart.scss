@@ -13,6 +13,7 @@
         .title-1 {
             color: $dark-text;
             font-weight: 500;
+            font-weight: bold;
             font-size: 15px;
             opacity: .8;
             margin-bottom: .9em;
@@ -78,6 +79,12 @@
         .prev {
             color: $primary;
             background:$primary-bg;
+        }
+
+        .next {
+            background: $primary;
+            color: #ffffff;
+            padding: .8em 2em;
         }
     }
 }

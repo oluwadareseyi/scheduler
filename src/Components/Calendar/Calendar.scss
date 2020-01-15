@@ -132,6 +132,7 @@
         margin-left: .2em;
         font-weight: bold;
         color: $dark-text;
+        opacity: .8;
     }
 
     .header {
@@ -146,10 +147,7 @@
         &-date {
             transition: all 2s;
             font-weight: 500;
-        }
-
-        .header-date {
-            font-size: 20px;
+            font-size: 18px;
             color: lighten(#000000, 30%);
         }
 
