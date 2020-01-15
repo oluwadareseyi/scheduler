@@ -1,1 +1,63 @@
 @import "../../../index.scss";
+
+.input-comp {
+
+    margin-bottom: 20px;
+    .label {
+        font-weight: 500;
+        color: lighten(#000000, 20%);
+    }
+
+    .input {
+        line-height: 1.5;
+        margin-top: 10px;
+        position: relative;
+        
+        input {
+            font-weight: 600;
+            font-size: 15px;
+            color: lighten(#000000, 30%);
+            line-height: 40px;
+            padding: 0 0.7em;
+            width: 360px;
+            border: 1px solid #dce1e6;
+            border-radius: 5px;
+            outline: none;
+            transition: border 350ms ease-in-out;
+
+            &::placeholder {
+                font-weight: bold;
+                color: darken(#e6ebeb, 4%);
+            }
+
+            &:focus {
+                border: 2px solid $primary;
+            }
+        }
+
+        .check-con {
+
+            position: absolute;
+            bottom: 2px;
+            right: 10px;
+            .svg {
+                height: 24px;
+                padding: .2em;
+                border-radius: 50%;
+                background: #e3f9f5;
+              }
+              
+              .check{
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: dash 1.3s linear forwards;
+              }
+              
+              @keyframes dash {
+                to {
+                  stroke-dashoffset: 0;
+                }
+              }
+        }
+    }
+}
