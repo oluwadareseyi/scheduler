@@ -3,6 +3,7 @@ import Calendar from "../../Components/Calendar/Calendar";
 import * as dateFns from "date-fns";
 import { connect } from "react-redux";
 import "./AppStart.scss";
+import ContactData from "../../Components/ContactData/ContactData";
 
 const AppStart = props => {
   return (
@@ -41,7 +42,8 @@ const AppStart = props => {
           </div>
         </div>
         <div className="top-section--right">
-          <Calendar />
+          {/* <Calendar /> */}
+          <ContactData />
         </div>
       </div>
       <div className="footer">
