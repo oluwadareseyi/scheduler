@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.scss';
-import Calendar from './Components/Calendar/Calendar';
+import AppStart from "./container/AppStart/AppStart";
 
 const App = () => {
   return (
     <div className="app">
       <div className="app-card">
-      <div className="footer"></div>
+        <AppStart />
       </div>
-      {/* <Calendar /> */}
-
-      
     </div>
   );
 }

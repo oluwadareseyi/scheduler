@@ -1,0 +1,83 @@
+@import "../../index.scss";
+
+.top-section {
+    height: calc(480px - 70px);
+    display: flex;
+
+    &--left {
+        width: 32%;
+        border-right: 1px solid #e6ebeb;
+        padding-left: 15px;
+        padding-top: 20px;
+
+        .title-1 {
+            color: $dark-text;
+            font-weight: 500;
+            font-size: 15px;
+            opacity: .8;
+            margin-bottom: .9em;
+        }
+
+        .title-2 {
+            color: lighten(#000000, 30%);
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 1em;
+        }
+
+        .interval {
+            display: flex;
+            background: $primary-bg;
+            color: $primary;
+            border-radius: 5px;
+            width: 115px;
+            padding: .6em .8em;
+
+            .interval-text {
+                font-size: 14px;
+                font-weight: bold;
+                margin-left: 6px;
+            }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 70px;
+    border-top: 1px solid #e6ebeb;
+
+    &-items {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        margin: auto;
+        padding-top: 18px;
+
+        button {
+            padding: .8em 1.5em;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                .fas {
+                    transform: translateX(-5px);
+                }
+            }
+
+            .fas {
+                margin-right: 6px;
+                transition: transform 500ms ease-out;
+
+                
+            }
+        }
+
+        .prev {
+            color: $primary;
+            background:$primary-bg;
+        }
+    }
+}
