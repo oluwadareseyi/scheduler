@@ -1,1 +1,20 @@
 @import "../../index.scss";
+
+.contact-data {
+    padding-left: 15px;
+    padding-top: 20px;
+
+    .title-1 {
+        color: $dark-text;
+            font-weight: 500;
+            opacity: .8;
+            margin-bottom: .9em;
+    }
+
+    .title-2 {
+        color: lighten(#000000, 30%);
+            font-weight: 500;
+            font-size: 22px;
+            margin-bottom: 1em;
+    }
+}
