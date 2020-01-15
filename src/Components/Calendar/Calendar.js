@@ -19,8 +19,6 @@ for (let i = 0; i <= 47; i++) {
 
 const Calendar = props => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [timeIndex, setTimeIndex] = useState(-1);
-  // const [disabledTime, setDisabledTime] = useState(true);
 
   const nextMonth = () => {
     setCurrentDate(dateFns.addMonths(currentDate, 1));
@@ -29,12 +27,9 @@ const Calendar = props => {
     setCurrentDate(dateFns.subMonths(currentDate, 1));
   };
 
-  const onTimeClick = (time, i) => {
-    console.log(
-      `${time} - ${time.slice(0, 3)}${parseInt(time.slice(-2)) + 15}`
-    );
-    setTimeIndex(i);
-  };
+  // console.log(
+  //   
+  // );
 
   const header = () => {
     const dateFormat = "MMMM yyyy";
@@ -85,11 +80,9 @@ const Calendar = props => {
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
-    // const onDateClick = day => {
-    //   console.log(dateFns.format(day, "dd, MMMM yyyy."));
-    //   setDisabledTime(false);
-    //   setSelectedDate(day);
-    // };
+    
+    // console.log();
+
     const dateFormat = "d";
     const rows = [];
     let days = [];
@@ -153,9 +146,9 @@ const Calendar = props => {
           <div
             key={i}
             className={`time ${props.disabledTime ? "disabled" : ""} ${
-              i === timeIndex ? "active" : ""
+              i === props.timeIndex ? "active" : ""
             }`}
-            onClick={() => onTimeClick(hour, i)}
+            onClick={() => props.setTimeIndex(hour, i)}
           >
             {hour}
           </div>
@@ -168,14 +161,17 @@ const Calendar = props => {
 const mapStateToProps = state => {
   return {
     selectedDate: state.selectedDate,
-    disabledTime: state.disabledTime
+    disabledTime: state.disabledTime,
+    time: state.time,
+    timeIndex: state.timeIndex
   };
 };
 
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSelectedDate: (day) => dispatch({type: "SELECTED", day})
+    setSelectedDate: (day) => dispatch({type: "SELECTED", day}),
+    setTimeIndex: (hour, key) => dispatch({type: "TIME", hour, key})
   };
 };
 

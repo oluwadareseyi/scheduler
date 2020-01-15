@@ -6,6 +6,8 @@
 
     &--left {
         width: 32%;
+        position: relative;
+        overflow: hidden;
         border-right: 1px solid #e6ebeb;
         padding-left: 15px;
         padding-top: 20px;
@@ -32,11 +34,79 @@
             border-radius: 5px;
             width: 115px;
             padding: .6em .8em;
+            // margin-bottom: 170px;
 
             .interval-text {
                 font-size: 14px;
                 font-weight: bold;
                 margin-left: 6px;
+            }
+        }
+
+        .selecteds {
+            background: #f5f9f9;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            width: calc(115px * 1.6);
+            padding: 1em .8em;
+            visibility: hidden;
+            transform: translateY(150px);
+
+            .date-wrapper {
+                margin-bottom: 18px;
+            }
+
+            [class$="wrapper"] {
+
+                .time {
+                    color: darken(#dce1e6, 10%);
+                    font-size: 15px;
+                    font-weight: bold;
+                    transition: color 1000ms ease-out;
+                }
+
+                .title {
+                    font-weight: bold;
+                    font-size: 12px;
+                    color: $dark-text;
+                    opacity: .8;
+                    margin-bottom: 6px;
+                }
+
+                .black {
+                    color: #1f242c;
+                    font-weight: bold;
+                    font-size: 15px;
+                    word-spacing: 2px;
+                }
+            }
+
+        }
+
+        .visible {
+            animation: make-visible 500ms ease-out 20ms 1 forwards;
+
+            @keyframes make-visible {
+
+                0% {
+                    opacity: 0;
+                }
+
+                50% {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                90% {
+                    // opacity: .3;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
         }
     }
@@ -55,13 +125,20 @@
         margin: auto;
         padding-top: 18px;
 
+        .disabled {
+            opacity: .5;
+            pointer-events: none;
+        }
+
         button {
             padding: .8em 1.5em;
+            transition: opacity 500ms ease-out;
             font-weight: bold;
             outline: none;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+
             &:hover {
                 .fas {
                     transform: translateX(-5px);
@@ -72,13 +149,13 @@
                 margin-right: 6px;
                 transition: transform 500ms ease-out;
 
-                
+
             }
         }
 
         .prev {
             color: $primary;
-            background:$primary-bg;
+            background: $primary-bg;
         }
 
         .next {
@@ -87,4 +164,8 @@
             padding: .8em 2em;
         }
     }
+}
+
+.slide-enter {
+    opacity: 0;
 }
