@@ -66,10 +66,10 @@ const AppStart = props => {
 
 const mapStateToProps = state => {
   return {
-    time: state.time,
-    selectedDate: state.selectedDate,
-    disabledTime: state.disabledTime,
-    timeIndex: state.timeIndex
+    time: state.calendar.time,
+    selectedDate: state.calendar.selectedDate,
+    disabledTime: state.calendar.disabledTime,
+    timeIndex: state.calendar.timeIndex
   };
 };
 

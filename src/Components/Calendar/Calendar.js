@@ -160,10 +160,10 @@ const Calendar = props => {
 
 const mapStateToProps = state => {
   return {
-    selectedDate: state.selectedDate,
-    disabledTime: state.disabledTime,
-    time: state.time,
-    timeIndex: state.timeIndex
+    selectedDate: state.calendar.selectedDate,
+    disabledTime: state.calendar.disabledTime,
+    time: state.calendar.time,
+    timeIndex: state.calendar.timeIndex
   };
 };
 

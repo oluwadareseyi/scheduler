@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from './store/reducer-cal';
+import reducerCon from "./store/reducer-con";
+import reducerCal from './store/reducer-cal';
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+    contact: reducerCon,
+    calendar: reducerCal
+})
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
