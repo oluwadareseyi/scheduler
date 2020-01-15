@@ -1,5 +1,6 @@
 import React from "react";
 import Calendar from '../../Components/Calendar/Calendar';
+import { connect } from 'react-redux';
 import './AppStart.scss';
 
 const AppStart = () => {
@@ -20,7 +21,7 @@ const AppStart = () => {
       </div>
       <div className="footer">
           <div className="footer-items">
-              <button className="prev"><i class="fas fa-arrow-left"></i> Back</button>
+              <button className="prev"><i className="fas fa-arrow-left"></i> Back</button>
               <button className="next">Next Step</button>
           </div>
       </div>
@@ -28,4 +29,9 @@ const AppStart = () => {
   );
 };
 
-export default AppStart;
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+export default connect(mapStateToProps)(AppStart);

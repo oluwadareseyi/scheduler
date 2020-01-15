@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as dateFns from "date-fns";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { connect } from "react-redux";
 import "./Calendar.scss";
 
 let hours = [];
@@ -11,16 +12,15 @@ for (let i = 0; i <= 47; i++) {
   }
 
   if (n.length === 4) {
-      n = "0".concat(n);
+    n = "0".concat(n);
   }
   hours.push(n);
 }
 
-const Calendar = () => {
+const Calendar = props => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const [timeIndex, setTimeIndex] = useState(-1);
-  const [disabledTime, setDisabledTime] = useState(true);
+  // const [disabledTime, setDisabledTime] = useState(true);
 
   const nextMonth = () => {
     setCurrentDate(dateFns.addMonths(currentDate, 1));
@@ -30,11 +30,11 @@ const Calendar = () => {
   };
 
   const onTimeClick = (time, i) => {
-    console.log(`${time} - ${time.slice(0, 3)}${parseInt(time.slice(-2)) + 15}`);
+    console.log(
+      `${time} - ${time.slice(0, 3)}${parseInt(time.slice(-2)) + 15}`
+    );
     setTimeIndex(i);
-  }
-
-
+  };
 
   const header = () => {
     const dateFormat = "MMMM yyyy";
@@ -85,11 +85,11 @@ const Calendar = () => {
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
-    const onDateClick = day => {
-      console.log(dateFns.format(day, "dd, MMMM yyyy."));
-        setDisabledTime(false);
-      setSelectedDate(day);
-    };
+    // const onDateClick = day => {
+    //   console.log(dateFns.format(day, "dd, MMMM yyyy."));
+    //   setDisabledTime(false);
+    //   setSelectedDate(day);
+    // };
     const dateFormat = "d";
     const rows = [];
     let days = [];
@@ -105,7 +105,7 @@ const Calendar = () => {
             className={`column cell ${
               !dateFns.isSameMonth(day, monthStart)
                 ? "disabled"
-                : dateFns.isSameDay(day, selectedDate)
+                : dateFns.isSameDay(day, props.selectedDate)
                 ? "selected"
                 : "today"
             } `}
@@ -116,7 +116,7 @@ const Calendar = () => {
                 : ""
             }`}
             key={day}
-            onClick={() => onDateClick(cloneDay)}
+            onClick={() => props.setSelectedDate(cloneDay)}
           >
             <span
               className={`number ${
@@ -150,8 +150,12 @@ const Calendar = () => {
       </div>
       <div className="hours">
         {hours.map((hour, i) => (
-          <div key={i} className={`time ${disabledTime ? "disabled": ""} ${i === timeIndex ? "active" : ""}`}
-          onClick={() => onTimeClick(hour, i)}
+          <div
+            key={i}
+            className={`time ${props.disabledTime ? "disabled" : ""} ${
+              i === timeIndex ? "active" : ""
+            }`}
+            onClick={() => onTimeClick(hour, i)}
           >
             {hour}
           </div>
@@ -161,4 +165,18 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+const mapStateToProps = state => {
+  return {
+    selectedDate: state.selectedDate,
+    disabledTime: state.disabledTime
+  };
+};
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setSelectedDate: (day) => dispatch({type: "SELECTED", day})
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar);

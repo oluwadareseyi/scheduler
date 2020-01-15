@@ -1,10 +1,16 @@
 const initialState = {
-
+  selectedDate: new Date(),
+  disabledTime: true
 };
 
 const reducer = (state = initialState, action) => {
-    return state;
-}
+  switch (action.type) {
+    case "SELECTED":
+      return { ...state, selectedDate: action.day, disabledTime: false };
 
+    default:
+      return state;
+  }
+};
 
 export default reducer;
