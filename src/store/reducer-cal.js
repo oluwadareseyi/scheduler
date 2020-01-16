@@ -19,6 +19,9 @@ const reducer = (state = initialState, action) => {
 
       case "DEC":
       return { ...state, buttonState: state.buttonState - 1 };
+
+      case "RESET":
+      return { ...state, buttonState: 0 };
     default:
       return state;
   }

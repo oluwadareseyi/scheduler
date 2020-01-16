@@ -13,7 +13,7 @@ const Input = props => {
            value={props.value} />
           <div className="check-con">
             <svg
-              className={`svg ${props.value.trim().length >= 2 ? "opaque" : "trans"}`}
+              className={`svg ${props.value.trim().length >= 4 ? "opaque" : "trans"}`}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 500 500"
             >
@@ -21,7 +21,7 @@ const Input = props => {
                 fill="none"
                 stroke="#69c3b0"
                 strokeWidth="60px"
-                className={`check ${props.value.trim().length >= 2 ? "animate" : ""}`}
+                className={`check ${props.value.trim().length >= 4 ? "animate" : ""}`}
                 points="114,245 194,323 370,140"
               />
             </svg>

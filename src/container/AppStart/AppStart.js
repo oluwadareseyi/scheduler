@@ -86,10 +86,10 @@ const AppStart = props => {
   
   
   return (
-    <div>
+    <React.Fragment>
       <Route path="/final" component={AppDone} />
       {appSkel}
-    </div>
+    </React.Fragment>
   );
 };
 

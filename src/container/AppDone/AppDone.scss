@@ -1,0 +1,186 @@
+@import "../../index.scss";
+
+
+@mixin set-margin($margin) {
+    margin-bottom: $margin;
+
+}
+
+.app-done {
+    padding-top: 50px;
+    width: 700px;
+    text-align: center;
+    transform: translateY(0);
+    animation: calendar 1100ms ease-out;
+
+
+    @keyframes calendar {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0.3;
+        }
+
+         100% {
+            opacity: 1;
+        }
+
+
+    }
+
+
+
+    .check-icon {
+        @include set-margin(20px);
+
+        .svg {
+            height: 50px;
+            padding: .5em;
+            border-radius: 50%;
+            background: #d2e6f8;
+            
+            animation: back 1s 300ms ease-in forwards;
+        }
+
+        @keyframes back {
+
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+
+        .check {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
+        .animate {
+            animation: dash 1.5s 1000ms linear forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    }
+
+    .message {
+        font-weight: bold;
+        font-size: 23px;
+        color: lighten(#000000, 30%);
+        @include set-margin(25px);
+        animation: back 1s 250ms ease-in forwards;
+
+    }
+
+    .email-not {
+        font-weight: bold;
+        margin-left: 160px;
+        margin-right: 160px;
+        line-height: 1.6;
+        color: darken(#e7e9e7, 12%);
+        font-size: 14px;
+        @include set-margin(25px);
+        animation: back 1s 300ms ease-in forwards;
+
+
+
+        .email {
+            color: darken(#adb4bc, 10%);
+        }
+    }
+
+    .dt-con {
+        margin-left: 190px;
+        margin-right: 190px;
+        background: #f5f9f9;
+        border-radius: 5px;
+        animation: back 1s 400ms ease-in forwards;
+
+        @include set-margin(25px);
+
+
+        .dt-wrapper {
+            padding: 15px 18px;
+
+            display: flex;
+
+            .date-con {
+                margin-right: 40px;
+            }
+
+            [class$="con"] {
+
+                .title {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 10.5px;
+                    text-align: left;
+                    color: $dark-text;
+                    opacity: .8;
+                    margin-bottom: 8px;
+                }
+
+                .black {
+                    color: #40484e;
+                    font-weight: bold;
+                    font-size: 15px;
+                    word-spacing: 2px;
+                }
+
+            }
+        }
+
+
+    }
+
+    .buttons {
+        display: flex;
+  justify-content: center;
+  flex-direction: column;
+  animation: back 1s 450ms ease-in forwards;
+
+
+        button {
+            padding: 1em 2.5em;
+            font-weight: bold;
+            font-size: 12px;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            transition: opacity 500ms ease-out;
+            cursor: pointer;
+            // width: 100px;
+            margin: 0 auto;
+        }
+
+        .button-1 {
+            background: #1184ff;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .button-2 {
+            color: #1184ff;
+            background: transparent;
+        }
+    }
+}
