@@ -20,7 +20,7 @@ const Input = props => {
               <polyline
                 fill="none"
                 stroke="#69c3b0"
-                stroke-width="60px"
+                strokeWidth="60px"
                 className={`check ${props.value.trim().length >= 2 ? "animate" : ""}`}
                 points="114,245 194,323 370,140"
               />

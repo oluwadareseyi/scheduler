@@ -13,6 +13,12 @@ const reducer = (state = initialState, action) => {
 
     case "TIME":
       return { ...state, time: action.hour, timeIndex: action.key };
+
+      case "INC":
+      return { ...state, buttonState: state.buttonState + 1 };
+
+      case "DEC":
+      return { ...state, buttonState: state.buttonState - 1 };
     default:
       return state;
   }

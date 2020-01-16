@@ -95,7 +95,7 @@
 
                 50% {
                     opacity: 0;
-                    transform: translateY(-10px);
+                    transform: translateY(10px);
                 }
 
                 90% {
@@ -130,13 +130,18 @@
             pointer-events: none;
         }
 
+        a{
+
+            transition: opacity 500ms ease-out;
+        }
+
         button {
             padding: .8em 1.5em;
-            transition: opacity 500ms ease-out;
             font-weight: bold;
             outline: none;
             border: none;
             border-radius: 5px;
+            transition: opacity 500ms ease-out;
             cursor: pointer;
 
             &:hover {

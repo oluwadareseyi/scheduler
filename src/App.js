@@ -2,14 +2,18 @@ import React from 'react';
 import './App.scss';
 import AppStart from "./container/AppStart/AppStart";
 
-const App = () => {
+const App = props => {
   return (
-    <div className="app">
-      <div className="app-card">
+    // <BrowserRouter>
+      <div className="app">
+        <div className="app-card">
         <AppStart />
+        </div>
       </div>
-    </div>
+    // </BrowserRouter>
   );
 }
+
+
 
 export default App;

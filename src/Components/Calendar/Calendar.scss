@@ -7,7 +7,32 @@
     margin-top: 1em;
     display: flex;
     line-height: 1.5;
+    z-index: -10;
+    transform: translateY(0);
+    animation: calendar 500ms ease-out;
 
+
+    @keyframes calendar {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0.3;
+        }
+
+         100% {
+            opacity: 1;
+        }
+
+
+    }
 
     .hours {
         margin-top: 95px;

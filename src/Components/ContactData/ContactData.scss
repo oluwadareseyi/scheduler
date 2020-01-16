@@ -3,6 +3,28 @@
 .contact-data {
     padding-left: 20px;
     padding-top: 20px;
+    animation: contact 500ms ease-out;
+
+
+    @keyframes contact {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0.3;
+        }
+
+         100% {
+            opacity: 1;
+        }
+    }
 
     .title-1 {
         color: $dark-text;
